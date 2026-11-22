@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rudransh Rajak — Full Stack Developer</title>
+  <meta name="description" content="Portfolio of Rudransh Rajak — Full Stack Developer, B.Tech CSE (AIML) student from Bhopal, India. Java, C++, JavaScript, React, Node.js." />
+  <meta name="theme-color" content="#05060a" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Rudransh Rajak — Full Stack Developer" />
+  <meta property="og:description" content="Full stack developer & B.Tech CSE (AIML) student from Bhopal. Java, C++, JavaScript, React, Node.js, MongoDB." />
+  <meta property="og:site_name" content="rudransh.dev" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Rudransh Rajak — Full Stack Developer" />
+  <meta name="twitter:description" content="Full stack developer & B.Tech CSE (AIML) student from Bhopal. Java, C++, JavaScript, React, Node.js, MongoDB." />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <noscript>
+    <style>
+      .preloader { display: none !important; }
+      .reveal { opacity: 1 !important; transform: none !important; }
+      .hero__canvas { display: none; }
+    </style>
+  </noscript>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "./assets/js/vendor/three.module.js"
+      }
+    }
+  </script>
+</head>
+<body>
+
+  <!-- ===== Preloader ===== -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__inner">
+      <div class="preloader__mark">RR</div>
+      <div class="preloader__bar"><span></span></div>
+      <p class="preloader__text">Initializing 3D space</p>
+    </div>
+  </div>
+
+  <!-- ===== Custom cursor ===== -->
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+
+  <!-- ===== Scroll progress ===== -->
+  <div class="progress" id="progress" aria-hidden="true"><span></span></div>
+
+  <!-- ===== Navigation ===== -->
+  <header class="nav" id="nav">
+    <div class="nav__inner container">
+      <a href="#home" class="brand" aria-label="Rudransh Rajak — home">
+        <span class="brand__mark">
+          <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <path d="M16 2.5 28 9.4v13.2L16 29.5 4 22.6V9.4L16 2.5Z" stroke="url(#g1)" stroke-width="1.4"/>
+            <path d="M11.5 22V10.5h5.2c2.8 0 4.5 1.4 4.5 3.8 0 1.9-1 3.2-2.8 3.6L21.6 22h-2.8l-3-3.7h-1.6V22h-2.7Zm2.7-6h2.3c1.4 0 2.2-.6 2.2-1.7s-.8-1.7-2.2-1.7h-2.3V16Z" fill="url(#g1)"/>
+            <defs>
+              <linearGradient id="g1" x1="4" y1="2" x2="28" y2="30" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#67e8f9"/><stop offset="1" stop-color="#a78bfa"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </span>
+        <span class="brand__text">rudransh<span>.dev</span></span>
+      </a>
+
+      <nav class="nav__links" id="navLinks" aria-label="Primary">
+        <a href="#about" class="nav__link">About</a>
+        <a href="#skills" class="nav__link">Skills</a>
+        <a href="#work" class="nav__link">Work</a>
+        <a href="#journey" class="nav__link">Journey</a>
+        <a href="#contact" class="nav__link">Contact</a>
+        <a href="mailto:Tanishrajak69080@gmail.com" class="btn btn--sm btn--primary nav__cta">Hire me</a>
+      </nav>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===== Hero ===== -->
+    <section class="hero" id="home">
+      <canvas id="scene" class="hero__canvas" aria-hidden="true"></canvas>
+      <div class="hero__glow" aria-hidden="true"></div>
+
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <p class="eyebrow reveal">
+            <span class="pulse"></span> Available for internships &amp; collaborations
+          </p>
+
+          <h1 class="hero__title reveal" data-delay="60">
+            <span class="hero__line">Building the</span>
+            <span class="hero__line gradient">web in 3D.</span>
+          </h1>
+
+          <p class="hero__lead reveal" data-delay="120">
+            I'm <strong>Rudransh Rajak</strong> — a full stack developer and B.Tech CSE&nbsp;(AIML)
+            student from Bhopal. I turn ideas into fast, clean, interactive products with
+            <span class="hl">JavaScript</span>, <span class="hl">React</span> and <span class="hl">Node.js</span>.
+          </p>
+
+          <div class="hero__actions reveal" data-delay="180">
+            <a href="#work" class="btn btn--primary">
+              <span>Explore my work</span>
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="#contact" class="btn btn--ghost">Let's talk</a>
+          </div>
+
+          <div class="hero__meta reveal" data-delay="240">
+            <a class="meta-item" href="tel:+919303769080">
+              <span class="meta-item__label">Phone</span>
+              <span class="meta-item__value">+91 93037 69080</span>
+            </a>
+            <a class="meta-item" href="mailto:Tanishrajak69080@gmail.com">
+              <span class="meta-item__label">Email</span>
+              <span class="meta-item__value">Tanishrajak69080@gmail.com</span>
+            </a>
+            <div class="meta-item">
+              <span class="meta-item__label">Based in</span>
+              <span class="meta-item__value">Bhopal, MP · India</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__side reveal" data-delay="300" aria-hidden="true">
+          <div class="orbit-card">
+            <div class="orbit-card__head">
+              <span class="dot dot--red"></span><span class="dot dot--amber"></span><span class="dot dot--green"></span>
+              <span class="orbit-card__tab">developer.js</span>
+            </div>
+            <pre class="orbit-card__code"><code><span class="k">const</span> <span class="v">rudransh</span> = {
+  <span class="p">role</span>: <span class="s">"Full Stack Dev"</span>,
+  <span class="p">stack</span>: [<span class="s">"Java"</span>, <span class="s">"C++"</span>, <span class="s">"JS"</span>],
+  <span class="p">frontend</span>: [<span class="s">"React"</span>, <span class="s">"CSS"</span>],
+  <span class="p">backend</span>: [<span class="s">"Node"</span>, <span class="s">"Express"</span>],
+  <span class="p">db</span>: [<span class="s">"MongoDB"</span>, <span class="s">"MySQL"</span>],
+  <span class="p">cgpa</span>: <span class="n">8.2</span>,
+  <span class="p">status</span>: <span class="s">"building 🚀"</span>
+};</code></pre>
+            <div class="orbit-card__foot">
+              <span class="live"><i></i> compiling</span>
+              <span>UTF-8 · JavaScript</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__stats container reveal" data-delay="360">
+        <div class="stat">
+          <span class="stat__num" data-count="8.2" data-decimals="1">8.2</span>
+          <span class="stat__label">Current CGPA</span>
+        </div>
+        <div class="stat">
+          <span class="stat__num" data-count="6">6</span>
+          <span class="stat__label">Certifications</span>
+        </div>
+        <div class="stat">
+          <span class="stat__num" data-count="2">2</span>
+          <span class="stat__label">Projects shipped</span>
+        </div>
+        <div class="stat">
+          <span class="stat__num">SIH</span>
+          <span class="stat__label">Hackathon winner</span>
+        </div>
+      </div>
+
+      <a href="#about" class="scroll-cue" aria-label="Scroll to about">
+        <span class="scroll-cue__line"></span>
+        <span class="scroll-cue__text">scroll</span>
+      </a>
+    </section>
+
+    <!-- ===== Marquee ===== -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Java</span><i>◆</i><span>C++</span><i>◆</i><span>JavaScript</span><i>◆</i><span>React</span><i>◆</i><span>Node.js</span><i>◆</i><span>Express</span><i>◆</i><span>MongoDB</span><i>◆</i><span>MySQL</span><i>◆</i><span>HTML</span><i>◆</i><span>CSS</span><i>◆</i><span>Git</span><i>◆</i>
+        <span>Java</span><i>◆</i><span>C++</span><i>◆</i><span>JavaScript</span><i>◆</i><span>React</span><i>◆</i><span>Node.js</span><i>◆</i><span>Express</span><i>◆</i><span>MongoDB</span><i>◆</i><span>MySQL</span><i>◆</i><span>HTML</span><i>◆</i><span>CSS</span><i>◆</i><span>Git</span><i>◆</i>
+      </div>
+    </div>
+
+    <!-- ===== About ===== -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow reveal"><span class="idx">01</span> About me</p>
+          <h2 class="section__title reveal" data-delay="60">
+            Curious by default,<br /><span class="gradient">builder by choice.</span>
+          </h2>
+        </div>
+
+        <div class="about">
+          <div class="about__copy">
+            <p class="about__lead reveal">
+              I'm a passionate and dedicated B.Tech student with strong coding skills and a
+              problem-solving mindset. I like the part of development where logic meets design —
+              and something people actually enjoy using comes out the other end.
+            </p>
+            <p class="reveal" data-delay="60">
+              Currently pursuing <strong>CSE (AI &amp; ML)</strong> at TIIT, Bhopal, I spend my time
+              sharpening my fundamentals in <strong>Java, C++ and JavaScript</strong>, then applying
+              them to real web products — from a smart food-ordering flow to a full e-commerce
+              storefront. I also co-found and build for early-stage ventures, which keeps me close to
+              product thinking, not just code.
+            </p>
+            <p class="reveal" data-delay="120">
+              My goal is simple: grow into a full stack developer who ships innovative, useful
+              software and contributes to teams that care about the craft.
+            </p>
+
+            <div class="about__tags reveal" data-delay="180">
+              <span class="tag">Problem solving</span>
+              <span class="tag">Full stack</span>
+              <span class="tag">Product thinking</span>
+              <span class="tag">AI &amp; ML curious</span>
+            </div>
+          </div>
+
+          <aside class="about__aside">
+            <div class="glass-card tilt reveal" data-delay="100">
+              <div class="glass-card__top">
+                <span class="mono-label">// currently</span>
+                <span class="status-pill"><i></i> learning</span>
+              </div>
+              <h3>B.Tech CSE — AIML</h3>
+              <p class="glass-card__sub">TIIT · Technoged Institute of Technology, Bhopal</p>
+              <div class="glass-card__rows">
+                <div class="row"><span>Batch</span><strong>2025 — 2029</strong></div>
+                <div class="row"><span>CGPA</span><strong>8.2 / 10</strong></div>
+                <div class="row"><span>Focus</span><strong>Full stack &amp; DSA</strong></div>
+              </div>
+              <div class="glass-card__bar"><span style="--w:82%"></span></div>
+              <p class="glass-card__note">Coursework progress · ongoing</p>
+            </div>
+
+            <div class="glass-card glass-card--accent tilt reveal" data-delay="180">
+              <span class="mono-label">// mindset</span>
+              <blockquote>
+                “Build it small, ship it fast, then make it better.”
+              </blockquote>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Skills ===== -->
+    <section class="section section--alt" id="skills">
+      <div class="container">
+        <div class="section__head section__head--split">
+          <div>
+            <p class="eyebrow reveal"><span class="idx">02</span> Technical skills</p>
+            <h2 class="section__title reveal" data-delay="60">My <span class="gradient">toolkit</span></h2>
+          </div>
+          <p class="section__desc reveal" data-delay="120">
+            A practical stack I use to take an idea from an empty folder to a deployed,
+            usable product.
+          </p>
+        </div>
+
+        <div class="skills">
+          <article class="skill-card tilt reveal">
+            <div class="skill-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Languages</h3>
+            <p class="skill-card__desc">Core languages I think in.</p>
+            <ul class="chips">
+              <li>Java</li><li>C++</li><li>JavaScript</li>
+            </ul>
+          </article>
+
+          <article class="skill-card tilt reveal" data-delay="60">
+            <div class="skill-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2.5" stroke="currentColor" stroke-width="1.6"/><path d="M3 8h18M8 21h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Frontend</h3>
+            <p class="skill-card__desc">Interfaces that feel alive.</p>
+            <ul class="chips">
+              <li>HTML</li><li>CSS</li><li>React</li>
+            </ul>
+          </article>
+
+          <article class="skill-card tilt reveal" data-delay="120">
+            <div class="skill-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><ellipse cx="12" cy="6" rx="8" ry="3" stroke="currentColor" stroke-width="1.6"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3" stroke="currentColor" stroke-width="1.6"/></svg>
+            </div>
+            <h3>Backend</h3>
+            <p class="skill-card__desc">APIs, logic and data flow.</p>
+            <ul class="chips">
+              <li>Node.js</li><li>Express.js</li>
+            </ul>
+          </article>
+
+          <article class="skill-card tilt reveal" data-delay="180">
+            <div class="skill-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3 3 7.5 12 12l9-4.5L12 3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="m3 12 9 4.5L21 12M3 16.5 12 21l9-4.5" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Data &amp; Tools</h3>
+            <p class="skill-card__desc">Where the data lives.</p>
+            <ul class="chips">
+              <li>MongoDB</li><li>MySQL</li><li>Git</li><li>VS Code</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="proficiency reveal" data-delay="100">
+          <div class="proficiency__head">
+            <h3>Comfort level</h3>
+            <span class="mono-label">// self-assessed, always improving</span>
+          </div>
+          <div class="bars">
+            <div class="bar" data-value="88">
+              <div class="bar__top"><span>JavaScript</span><span class="bar__val">88%</span></div>
+              <div class="bar__track"><i></i></div>
+            </div>
+            <div class="bar" data-value="86">
+              <div class="bar__top"><span>Java</span><span class="bar__val">86%</span></div>
+              <div class="bar__track"><i></i></div>
+            </div>
+            <div class="bar" data-value="82">
+              <div class="bar__top"><span>React</span><span class="bar__val">82%</span></div>
+              <div class="bar__track"><i></i></div>
+            </div>
+            <div class="bar" data-value="80">
+              <div class="bar__top"><span>Node / Express</span><span class="bar__val">80%</span></div>
+              <div class="bar__track"><i></i></div>
+            </div>
+            <div class="bar" data-value="84">
+              <div class="bar__top"><span>C++ &amp; DSA</span><span class="bar__val">84%</span></div>
+              <div class="bar__track"><i></i></div>
+            </div>
+            <div class="bar" data-value="78">
+              <div class="bar__top"><span>MongoDB / MySQL</span><span class="bar__val">78%</span></div>
+              <div class="bar__track"><i></i></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Work ===== -->
+    <section class="section" id="work">
+      <div class="container">
+        <div class="section__head section__head--split">
+          <div>
+            <p class="eyebrow reveal"><span class="idx">03</span> Selected work</p>
+            <h2 class="section__title reveal" data-delay="60">Things I've <span class="gradient">built</span></h2>
+          </div>
+          <p class="section__desc reveal" data-delay="120">
+            Real projects, real interfaces. Each one taught me something the last one didn't.
+          </p>
+        </div>
+
+        <div class="projects">
+          <!-- Project 1 -->
+          <article class="project tilt reveal">
+            <div class="project__visual">
+              <div class="mock mock--order">
+                <div class="mock__bar"><i></i><i></i><i></i><span>smart-order.app</span></div>
+                <div class="mock__body">
+                  <div class="mock__side">
+                    <span class="mock__logo">SO</span>
+                    <span class="mock__navline active"></span>
+                    <span class="mock__navline"></span>
+                    <span class="mock__navline"></span>
+                    <span class="mock__navline short"></span>
+                  </div>
+                  <div class="mock__main">
+                    <div class="mock__title-row">
+                      <span class="mock__heading">Today's menu</span>
+                      <span class="mock__pill">4 items</span>
+                    </div>
+                    <div class="mock__cards">
+                      <div class="mock__food"><span class="food-emoji">🍔</span><b>Burger</b><em>₹120</em></div>
+                      <div class="mock__food"><span class="food-emoji">🍕</span><b>Pizza</b><em>₹240</em></div>
+                      <div class="mock__food"><span class="food-emoji">🍜</span><b>Noodles</b><em>₹90</em></div>
+                      <div class="mock__food"><span class="food-emoji">🥤</span><b>Shake</b><em>₹70</em></div>
+                    </div>
+                    <div class="mock__cart"><span>Cart · 2 items</span><b>₹210 &nbsp;→</b></div>
+                  </div>
+                </div>
+              </div>
+              <span class="project__glow" aria-hidden="true"></span>
+            </div>
+
+            <div class="project__body">
+              <div class="project__meta">
+                <span class="mono-label">01 / Web app</span>
+                <a class="project__arrow" href="#contact" aria-label="Ask about Smart Ordering System">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+              </div>
+              <h3>Smart Ordering System</h3>
+              <p>
+                A simple food-ordering platform built around a smooth, distraction-free flow —
+                browse the menu, build a cart and confirm an order in a couple of taps.
+              </p>
+              <ul class="chips chips--sm">
+                <li>HTML</li><li>CSS</li><li>JavaScript</li><li>Node.js</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="project project--reverse tilt reveal" data-delay="80">
+            <div class="project__visual">
+              <div class="mock mock--shop">
+                <div class="mock__bar"><i></i><i></i><i></i><span>shop.rudransh.dev</span></div>
+                <div class="mock__body mock__body--shop">
+                  <div class="mock__hero">
+                    <div>
+                      <span class="mock__heading">New season</span>
+                      <span class="mock__sub">Fresh drops, fair prices.</span>
+                      <span class="mock__cta">Shop now</span>
+                    </div>
+                    <span class="mock__orb"></span>
+                  </div>
+                  <div class="mock__grid">
+                    <div class="mock__product"><span class="p-img p-img--1"></span><b>Product</b><em>₹1,299</em></div>
+                    <div class="mock__product"><span class="p-img p-img--2"></span><b>Product</b><em>₹899</em></div>
+                    <div class="mock__product"><span class="p-img p-img--3"></span><b>Product</b><em>₹1,499</em></div>
+                  </div>
+                </div>
+              </div>
+              <span class="project__glow project__glow--violet" aria-hidden="true"></span>
+            </div>
+
+            <div class="project__body">
+              <div class="project__meta">
+                <span class="mono-label">02 / E-commerce</span>
+                <a class="project__arrow" href="#contact" aria-label="Ask about E-Commerce Website">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+              </div>
+              <h3>E-Commerce Website</h3>
+              <p>
+                A modern storefront for buying and selling products online — product browsing,
+                clean product pages and a checkout-ready structure powered by PHP.
+              </p>
+              <ul class="chips chips--sm">
+                <li>HTML</li><li>CSS</li><li>JavaScript</li><li>PHP</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Next project -->
+          <article class="project project--next reveal" data-delay="160">
+            <div class="project__next-inner">
+              <span class="mono-label">03 / In progress</span>
+              <h3>Your idea could be next.</h3>
+              <p>I'm always looking for interesting problems to build around. Have one?</p>
+              <a href="#contact" class="btn btn--ghost btn--sm">Start a conversation</a>
+            </div>
+            <div class="project__next-grid" aria-hidden="true"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Journey ===== -->
+    <section class="section section--alt" id="journey">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow reveal"><span class="idx">04</span> Journey</p>
+          <h2 class="section__title reveal" data-delay="60">Education, experience<br /><span class="gradient">&amp; milestones</span></h2>
+        </div>
+
+        <div class="journey">
+          <div class="timeline">
+            <article class="tl-item reveal">
+              <span class="tl-dot"></span>
+              <span class="tl-year">2025 — 2029</span>
+              <h3>B.Tech — CSE (AI &amp; ML)</h3>
+              <p class="tl-org">TIIT · Technoged Institute of Technology, Bhopal</p>
+              <p>Ongoing. Building strong foundations in programming, data structures and modern web development. Current CGPA: <strong>8.2</strong>.</p>
+              <span class="badge badge--live">ongoing</span>
+            </article>
+
+            <article class="tl-item reveal" data-delay="60">
+              <span class="tl-dot"></span>
+              <span class="tl-year">2025 — present</span>
+              <h3>Co-Founder &amp; Developer</h3>
+              <p class="tl-org">Multiple startups · Self-initiated</p>
+              <p>Contributing as a developer and co-founder across multiple ventures — web projects and product ideas, from concept to a working build.</p>
+              <span class="badge">entrepreneurship</span>
+            </article>
+
+            <article class="tl-item reveal" data-delay="120">
+              <span class="tl-dot"></span>
+              <span class="tl-year">Completed</span>
+              <h3>Higher Secondary — 12th</h3>
+              <p class="tl-org">Senior secondary education</p>
+              <p>Completed with a science focus, which set up the move into engineering and computer science.</p>
+            </article>
+
+            <article class="tl-item reveal" data-delay="180">
+              <span class="tl-dot"></span>
+              <span class="tl-year">Completed</span>
+              <h3>Secondary — 10th</h3>
+              <p class="tl-org">Foundation schooling</p>
+              <p>Where the first lines of code happened — and the curiosity stuck.</p>
+            </article>
+          </div>
+
+          <aside class="journey__side">
+            <div class="honours reveal" data-delay="100">
+              <div class="honours__head">
+                <h3>Achievements</h3>
+                <span class="mono-label">// wins</span>
+              </div>
+
+              <div class="honour">
+                <span class="honour__icon">🏆</span>
+                <div>
+                  <h4>Winner — Smart India Hackathon</h4>
+                  <p>National-level hackathon · SIH</p>
+                </div>
+              </div>
+
+              <div class="honour">
+                <span class="honour__icon">🥇</span>
+                <div>
+                  <h4>Winner — Coding Competition</h4>
+                  <p>College level</p>
+                </div>
+              </div>
+
+              <div class="honour">
+                <span class="honour__icon">⚡</span>
+                <div>
+                  <h4>Active hackathon participant</h4>
+                  <p>Multiple hackathons &amp; tech events</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="cert-panel reveal" data-delay="180">
+              <div class="cert-panel__head">
+                <h3>Certifications</h3>
+                <span class="mono-label">// 06 earned</span>
+              </div>
+              <ul class="cert-list">
+                <li><span class="cert-badge">Ja</span><div><b>Java Programming</b><em>Coursera</em></div></li>
+                <li><span class="cert-badge">C++</span><div><b>C++ Programming</b><em>Udemy</em></div></li>
+                <li><span class="cert-badge">JS</span><div><b>JavaScript &amp; Web Development</b><em>freeCodeCamp</em></div></li>
+                <li><span class="cert-badge">DSA</span><div><b>DSA with C++</b><em>Coding Ninjas</em></div></li>
+                <li><span class="cert-badge">SIH</span><div><b>Hackathon Participation</b><em>Smart India Hackathon</em></div></li>
+                <li><span class="cert-badge">Web</span><div><b>Web Development</b><em>Google</em></div></li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Contact ===== -->
+    <section class="section contact" id="contact">
+      <div class="contact__glow" aria-hidden="true"></div>
+      <div class="container">
+        <div class="contact__grid">
+          <div class="contact__intro">
+            <p class="eyebrow reveal"><span class="idx">05</span> Contact</p>
+            <h2 class="section__title reveal" data-delay="60">
+              Let's build<br /><span class="gradient">something good.</span>
+            </h2>
+            <p class="contact__lead reveal" data-delay="120">
+              Open to internships, freelance projects, collaborations and good conversations
+              about code. I usually reply within a day.
+            </p>
+
+            <div class="contact__links reveal" data-delay="180">
+              <a href="mailto:Tanishrajak69080@gmail.com" class="contact-link">
+                <span class="contact-link__icon">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5" stroke="currentColor" stroke-width="1.6"/><path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <span>
+                  <em>Email</em>
+                  <b>Tanishrajak69080@gmail.com</b>
+                </span>
+              </a>
+              <a href="tel:+919303769080" class="contact-link">
+                <span class="contact-link__icon">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.5 3h3l1.5 4-2 1.5a12 12 0 0 0 5.5 5.5L16 12l4 1.5v3A2.5 2.5 0 0 1 17.5 19C10.6 18.6 5.4 13.4 5 6.5A2.5 2.5 0 0 1 6.5 3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+                </span>
+                <span>
+                  <em>Phone</em>
+                  <b>+91 93037 69080</b>
+                </span>
+              </a>
+              <div class="contact-link contact-link--static">
+                <span class="contact-link__icon">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s7-5.4 7-11a7 7 0 1 0-14 0c0 5.6 7 11 7 11Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.6"/></svg>
+                </span>
+                <span>
+                  <em>Location</em>
+                  <b>Bhopal, Madhya Pradesh</b>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <form class="contact__form glass-card reveal" id="contactForm" data-delay="120" novalidate>
+            <div class="form-row">
+              <label class="field">
+                <span>Name</span>
+                <input type="text" name="name" placeholder="Your name" required autocomplete="name" />
+              </label>
+              <label class="field">
+                <span>Email</span>
+                <input type="email" name="email" placeholder="you@company.com" required autocomplete="email" />
+              </label>
+            </div>
+            <label class="field">
+              <span>Subject</span>
+              <input type="text" name="subject" placeholder="Internship, project, or just hello" required />
+            </label>
+            <label class="field">
+              <span>Message</span>
+              <textarea name="message" rows="5" placeholder="Tell me what you're building…" required></textarea>
+            </label>
+            <button type="submit" class="btn btn--primary btn--block">
+              <span>Send message</span>
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12 20 4l-3.2 16L11 14l-7-2Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <p class="form-note">This opens your email app with the message ready to send.</p>
+            <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="#home" class="brand">
+          <span class="brand__mark">
+            <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <path d="M16 2.5 28 9.4v13.2L16 29.5 4 22.6V9.4L16 2.5Z" stroke="url(#g2)" stroke-width="1.4"/>
+              <path d="M11.5 22V10.5h5.2c2.8 0 4.5 1.4 4.5 3.8 0 1.9-1 3.2-2.8 3.6L21.6 22h-2.8l-3-3.7h-1.6V22h-2.7Zm2.7-6h2.3c1.4 0 2.2-.6 2.2-1.7s-.8-1.7-2.2-1.7h-2.3V16Z" fill="url(#g2)"/>
+              <defs>
+                <linearGradient id="g2" x1="4" y1="2" x2="28" y2="30" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#67e8f9"/><stop offset="1" stop-color="#a78bfa"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </span>
+          <span class="brand__text">rudransh<span>.dev</span></span>
+        </a>
+        <p>Full stack developer in the making.<br />Bhopal, India.</p>
+      </div>
+
+      <nav class="footer__nav" aria-label="Footer">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#work">Work</a>
+        <a href="#journey">Journey</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="footer__meta">
+        <a href="mailto:Tanishrajak69080@gmail.com">Tanishrajak69080@gmail.com</a>
+        <a href="tel:+919303769080">+91 93037 69080</a>
+        <p>© <span id="year">2026</span> Rudransh Rajak</p>
+        <p class="footer__built">Built from scratch · HTML · CSS · Three.js</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script defer src="assets/js/main.js"></script>
+  <script type="module" src="assets/js/three-scene.js"></script>
+</body>
+</html>
